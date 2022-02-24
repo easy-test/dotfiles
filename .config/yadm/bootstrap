@@ -1,0 +1,31 @@
+#!/usr/bin/sudo bash
+
+system_type=$(uname -s)
+
+if [ '$system_type' = 'Linux' ]; then
+
+    # # Установит tor если такой отсутствует
+    if ! command -v tor >/dev/null 2>&1; then
+        echo 'Установка tor'    
+        apt-get install -y tor
+    fi
+    
+    # # Установит direnv если такой отсутствует
+    if ! command -v direnv >/dev/null 2>&1; then
+        echo 'Установка direnv'    
+        apt-get install -y direnv
+    fi
+
+    # # Установит lynx если такой отсутствует
+    if ! command -v lynx >/dev/null 2>&1; then
+        echo 'Установка lynx'    
+        apt-get install -y lynx
+    fi  
+
+    # Установит yadm если такой отсутствует
+    if ! command -v yadm >/dev/null 2>&1; then
+        echo 'Установка yadm'    
+        apt-get install -y yadm
+    fi
+    
+fi
